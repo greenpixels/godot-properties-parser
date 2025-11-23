@@ -4,9 +4,8 @@ A Rust parser for Godot Engine files.
 
 ## Installation
 
-```toml
-[dependencies]
-godot-properties-parser = "0.1.0"
+```bash
+cargo add godot-properties-parser
 ```
 
 ## Usage

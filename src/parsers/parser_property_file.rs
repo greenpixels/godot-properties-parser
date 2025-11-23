@@ -16,6 +16,8 @@ pub struct Section {
 
 #[derive(Debug, PartialEq, Clone)]
 pub struct PropertyFile {
+    /// Properties that appear before the first section (e.g., config_version in .godot files)
+    pub preamble_properties: Vec<UntypedProperty>,
     pub sections: Vec<Section>,
 }
 
@@ -55,10 +57,65 @@ pub struct PropertyFile {
 /// ```
 pub fn parse_property_file(input: &str) -> IResult<&str, PropertyFile> {
     let (input, _) = multispace0(input)?;
+
+    // Parse preamble properties (before first section)
+    let (input, preamble_properties) = parse_preamble(input)?;
+
     let (input, sections) = many0(parse_section).parse(input)?;
     let (input, _) = multispace0(input)?;
 
-    Ok((input, PropertyFile { sections }))
+    Ok((
+        input,
+        PropertyFile {
+            preamble_properties,
+            sections,
+        },
+    ))
+}
+
+/// Parses properties and comments that appear before the first section
+fn parse_preamble(input: &str) -> IResult<&str, Vec<UntypedProperty>> {
+    let mut remaining = input;
+    let mut properties = Vec::new();
+
+    loop {
+        // Skip whitespace
+        let (next_input, _) = multispace0(remaining)?;
+
+        // Check if we hit a section start or EOF
+        if next_input.is_empty() || next_input.starts_with('[') {
+            return Ok((next_input, properties));
+        }
+
+        // Try to parse a comment line (skip it)
+        if let Ok((next_input, _)) = comment_line(next_input) {
+            let (next_input, _) = opt(line_ending).parse(next_input)?;
+            remaining = next_input;
+            continue;
+        }
+
+        // Try to parse a property line
+        let (next_input, line) = parse_property_line(next_input)?;
+
+        // Skip empty lines
+        if line.trim().is_empty() {
+            remaining = next_input;
+            continue;
+        }
+
+        // Try to parse properties from this line
+        match properties0(&line) {
+            Ok((_, props)) => {
+                properties.extend(props);
+            }
+            Err(_) => {
+                // Not a valid property line, stop preamble parsing
+                return Ok((remaining, properties));
+            }
+        }
+
+        remaining = next_input;
+    }
 }
 
 fn parse_section(input: &str) -> IResult<&str, Section> {

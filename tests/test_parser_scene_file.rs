@@ -49,6 +49,7 @@ fn test_scene_file_from_property_file() {
     use godot_properties_parser::parsers::parser_scene_file::SceneFile;
 
     let property_file = PropertyFile {
+        preamble_properties: vec![],
         sections: vec![
             Section {
                 header_type: "gd_scene".to_string(),

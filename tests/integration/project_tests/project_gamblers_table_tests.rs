@@ -115,3 +115,73 @@ fn test_all_sections_categorized() {
         "Should have at least some categorized sections"
     );
 }
+
+#[test]
+fn test_parses_raw_file_with_preamble() {
+    // Test parsing the raw file WITHOUT stripping comments/preamble
+    let result = parse_project_file(PROJECT_CONTENT);
+
+    assert!(
+        result.is_ok(),
+        "Failed to parse raw file with preamble: {:?}",
+        result.err()
+    );
+
+    let (remaining, project) = result.unwrap();
+
+    assert_eq!(
+        remaining.len(),
+        0,
+        "Should fully consume file, but {} chars remain",
+        remaining.len()
+    );
+
+    assert_eq!(
+        project.all_sections.len(),
+        18,
+        "Should parse all 18 sections"
+    );
+}
+
+#[test]
+fn test_preamble_properties() {
+    // Parse raw file to get preamble properties
+    let (_, project) = parse_project_file(PROJECT_CONTENT).unwrap();
+
+    assert_eq!(
+        project.preamble_properties.len(),
+        1,
+        "Should have 1 preamble property"
+    );
+
+    let config_version = project
+        .preamble_properties
+        .iter()
+        .find(|p| p.key == "config_version");
+
+    assert!(
+        config_version.is_some(),
+        "Should have config_version property"
+    );
+
+    assert_eq!(
+        config_version.unwrap().value,
+        "5",
+        "config_version should be 5"
+    );
+}
+
+#[test]
+fn test_preamble_not_in_sections() {
+    // Verify config_version is NOT in any section, only in preamble
+    let (_, project) = parse_project_file(PROJECT_CONTENT).unwrap();
+
+    for section in &project.all_sections {
+        let has_config_version = section.properties.iter().any(|p| p.key == "config_version");
+        assert!(
+            !has_config_version,
+            "config_version should not appear in section [{}]",
+            section.header_type
+        );
+    }
+}

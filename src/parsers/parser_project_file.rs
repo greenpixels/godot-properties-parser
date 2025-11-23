@@ -1,8 +1,11 @@
+use super::parser_property::UntypedProperty;
 use super::parser_property_file::{PropertyFile, Section, parse_property_file};
 use nom::IResult;
 
 #[derive(Debug, PartialEq, Clone)]
 pub struct ProjectFile {
+    /// Properties that appear before the first section (e.g., config_version=5)
+    pub preamble_properties: Vec<UntypedProperty>,
     /// Application configuration section
     pub application: Option<Section>,
     /// Audio configuration section
@@ -35,6 +38,7 @@ impl ProjectFile {
     /// Create a new empty ProjectFile
     pub fn new() -> Self {
         Self {
+            preamble_properties: Vec::new(),
             application: None,
             audio: None,
             autoload: None,
@@ -54,6 +58,7 @@ impl ProjectFile {
     /// Create a ProjectFile from a PropertyFile by categorizing sections
     pub fn from_property_file(property_file: PropertyFile) -> Self {
         let mut project_file = ProjectFile::new();
+        project_file.preamble_properties = property_file.preamble_properties;
 
         for section in property_file.sections {
             // Store in all_sections
