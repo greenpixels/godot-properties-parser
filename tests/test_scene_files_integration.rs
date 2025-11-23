@@ -3,7 +3,7 @@ use godot_properties_parser::{parse_property_file, parse_scene_file};
 /// Test that simple_header.tscn parses successfully
 #[test]
 fn test_parse_simple_header_tscn() {
-    let content = include_str!("../src/scenes/simple_header.tscn");
+    let content = include_str!("scenes/simple_header.tscn");
     let result = parse_property_file(content);
 
     assert!(
@@ -21,7 +21,7 @@ fn test_parse_simple_header_tscn() {
 /// Test that simple_header.tscn parses as a scene file
 #[test]
 fn test_parse_simple_header_scene() {
-    let content = include_str!("../src/scenes/simple_header.tscn");
+    let content = include_str!("scenes/simple_header.tscn");
     let result = parse_scene_file(content);
 
     assert!(
@@ -39,7 +39,7 @@ fn test_parse_simple_header_scene() {
 /// Test that shop_sidebar.tscn parses successfully
 #[test]
 fn test_parse_shop_sidebar_tscn() {
-    let content = include_str!("../src/scenes/shop_sidebar.tscn");
+    let content = include_str!("scenes/shop_sidebar.tscn");
     let result = parse_property_file(content);
 
     assert!(
@@ -56,7 +56,7 @@ fn test_parse_shop_sidebar_tscn() {
 /// Test that shop_sidebar.tscn has expected structure
 #[test]
 fn test_shop_sidebar_structure() {
-    let content = include_str!("../src/scenes/shop_sidebar.tscn");
+    let content = include_str!("scenes/shop_sidebar.tscn");
     let result = parse_scene_file(content);
 
     assert!(
@@ -78,7 +78,7 @@ fn test_shop_sidebar_structure() {
 /// Test that table_selection_entry.tscn parses successfully
 #[test]
 fn test_parse_table_selection_entry_tscn() {
-    let content = include_str!("../src/scenes/table_selection_entry.tscn");
+    let content = include_str!("scenes/table_selection_entry.tscn");
     let result = parse_property_file(content);
 
     assert!(
@@ -95,7 +95,7 @@ fn test_parse_table_selection_entry_tscn() {
 /// Test that table_selection_entry.tscn has expected structure
 #[test]
 fn test_table_selection_entry_structure() {
-    let content = include_str!("../src/scenes/table_selection_entry.tscn");
+    let content = include_str!("scenes/table_selection_entry.tscn");
     let result = parse_scene_file(content);
 
     assert!(
@@ -111,7 +111,7 @@ fn test_table_selection_entry_structure() {
 /// Test that play_room.tscn parses successfully (complex file)
 #[test]
 fn test_parse_play_room_tscn() {
-    let content = include_str!("../src/scenes/play_room.tscn");
+    let content = include_str!("scenes/play_room.tscn");
     let result = parse_property_file(content);
 
     assert!(
@@ -131,7 +131,7 @@ fn test_parse_play_room_tscn() {
 /// Test that play_room.tscn has expected structure (complex file)
 #[test]
 fn test_play_room_structure() {
-    let content = include_str!("../src/scenes/play_room.tscn");
+    let content = include_str!("scenes/play_room.tscn");
     let result = parse_scene_file(content);
 
     assert!(
@@ -174,19 +174,19 @@ fn test_all_scene_files_parse() {
     let scene_files = [
         (
             "simple_header.tscn",
-            include_str!("../src/scenes/simple_header.tscn"),
+            include_str!("scenes/simple_header.tscn"),
         ),
         (
             "shop_sidebar.tscn",
-            include_str!("../src/scenes/shop_sidebar.tscn"),
+            include_str!("scenes/shop_sidebar.tscn"),
         ),
         (
             "table_selection_entry.tscn",
-            include_str!("../src/scenes/table_selection_entry.tscn"),
+            include_str!("scenes/table_selection_entry.tscn"),
         ),
         (
             "play_room.tscn",
-            include_str!("../src/scenes/play_room.tscn"),
+            include_str!("scenes/play_room.tscn"),
         ),
     ];
 
@@ -211,7 +211,7 @@ fn test_all_scene_files_parse() {
 /// Verify that all parsed sections have valid header types
 #[test]
 fn test_all_sections_have_valid_headers() {
-    let content = include_str!("../src/scenes/play_room.tscn");
+    let content = include_str!("scenes/play_room.tscn");
     let (_, file) = parse_property_file(content).unwrap();
 
     for section in &file.sections {
@@ -233,7 +233,7 @@ fn test_all_sections_have_valid_headers() {
 /// Verify that nodes have required properties
 #[test]
 fn test_nodes_have_name_property() {
-    let content = include_str!("../src/scenes/play_room.tscn");
+    let content = include_str!("scenes/play_room.tscn");
     let (_, scene) = parse_scene_file(content).unwrap();
 
     for node in &scene.nodes {
@@ -245,7 +245,7 @@ fn test_nodes_have_name_property() {
 /// Verify that external resources have required properties
 #[test]
 fn test_ext_resources_have_type_property() {
-    let content = include_str!("../src/scenes/play_room.tscn");
+    let content = include_str!("scenes/play_room.tscn");
     let (_, scene) = parse_scene_file(content).unwrap();
 
     for ext_res in &scene.ext_resources {
@@ -257,7 +257,7 @@ fn test_ext_resources_have_type_property() {
 /// Verify that sub-resources have id property
 #[test]
 fn test_sub_resources_have_id_property() {
-    let content = include_str!("../src/scenes/play_room.tscn");
+    let content = include_str!("scenes/play_room.tscn");
     let (_, scene) = parse_scene_file(content).unwrap();
 
     for sub_res in &scene.sub_resources {
@@ -269,7 +269,7 @@ fn test_sub_resources_have_id_property() {
 /// Verify that connections have required signal properties
 #[test]
 fn test_connections_have_signal_property() {
-    let content = include_str!("../src/scenes/play_room.tscn");
+    let content = include_str!("scenes/play_room.tscn");
     let (_, scene) = parse_scene_file(content).unwrap();
 
     for connection in &scene.connections {

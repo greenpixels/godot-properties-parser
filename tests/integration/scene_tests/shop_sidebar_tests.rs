@@ -1,20 +1,20 @@
 use crate::integration::test_helpers::{SceneExpectations, SceneTestSuite};
 
-const TABLE_SELECTION_CONTENT: &str = include_str!("../../src/scenes/table_selection_entry.tscn");
+const SHOP_SIDEBAR_CONTENT: &str = include_str!("../../scenes/shop_sidebar.tscn");
 
 fn get_expectations() -> SceneExpectations {
-    SceneExpectations::new("table_selection_entry")
-        .with_sections(22)
-        .with_ext_resources(5)
-        .with_sub_resources(3)
-        .with_nodes(11)
-        .with_connections(2)
+    SceneExpectations::new("shop_sidebar")
+        .with_sections(102)
+        .with_ext_resources(56)
+        .with_sub_resources(2)
+        .with_nodes(39)
+        .with_connections(4)
         .with_editables(0)
         .with_header_property("format", "3")
 }
 
 fn get_test_suite() -> SceneTestSuite<'static> {
-    SceneTestSuite::new(TABLE_SELECTION_CONTENT, get_expectations())
+    SceneTestSuite::new(SHOP_SIDEBAR_CONTENT, get_expectations())
 }
 
 // Basic tests

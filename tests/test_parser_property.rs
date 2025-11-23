@@ -1,4 +1,4 @@
-use godot_properties_parser::properties0;
+use godot_properties_parser::parsers::parser_property::properties0;
 
 #[test]
 fn test_simple_property() {

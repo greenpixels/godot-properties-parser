@@ -1,4 +1,5 @@
-use godot_properties_parser::{parse_scene_file, PropertyFile, Section};
+use godot_properties_parser::parse_scene_file;
+use godot_properties_parser::parsers::parser_property_file::{PropertyFile, Section};
 
 #[test]
 fn test_parse_scene_file_basic() {
@@ -45,7 +46,7 @@ fn test_scene_file_multiple_resources() {
 
 #[test]
 fn test_scene_file_from_property_file() {
-    use godot_properties_parser::SceneFile;
+    use godot_properties_parser::parsers::parser_scene_file::SceneFile;
 
     let property_file = PropertyFile {
         sections: vec![

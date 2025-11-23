@@ -1,6 +1,6 @@
 use crate::integration::test_helpers::{SceneExpectations, SceneTestSuite};
 
-const SIMPLE_HEADER_CONTENT: &str = include_str!("../../src/scenes/simple_header.tscn");
+const SIMPLE_HEADER_CONTENT: &str = include_str!("../../scenes/simple_header.tscn");
 
 fn get_expectations() -> SceneExpectations {
     SceneExpectations::new("simple_header")

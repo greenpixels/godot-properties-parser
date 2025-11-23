@@ -1,6 +1,6 @@
 use crate::integration::test_helpers::{SceneExpectations, SceneTestSuite};
 
-const PLAY_ROOM_CONTENT: &str = include_str!("../../src/scenes/play_room.tscn");
+const PLAY_ROOM_CONTENT: &str = include_str!("../../scenes/play_room.tscn");
 
 fn get_expectations() -> SceneExpectations {
     SceneExpectations::new("play_room")
