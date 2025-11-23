@@ -98,9 +98,8 @@ fn parse_section_body(input: &str) -> IResult<&str, Vec<UntypedProperty>> {
             return Ok((next_input, all_properties));
         }
 
-        // Try to parse a property line
-        let (next_input, line) = not_line_ending(next_input)?;
-        let (next_input, _) = opt(line_ending).parse(next_input)?;
+        // Try to parse a property line (potentially multi-line)
+        let (next_input, line) = parse_property_line(next_input)?;
 
         // Skip empty or comment lines
         if line.trim().is_empty() || line.trim().starts_with(';') {
@@ -109,7 +108,7 @@ fn parse_section_body(input: &str) -> IResult<&str, Vec<UntypedProperty>> {
         }
 
         // Try to parse properties from this line
-        match properties0(line) {
+        match properties0(&line) {
             Ok((_, props)) => {
                 all_properties.extend(props);
             }
@@ -120,6 +119,71 @@ fn parse_section_body(input: &str) -> IResult<&str, Vec<UntypedProperty>> {
         }
 
         remaining = next_input;
+    }
+}
+
+/// Parses a property line, which may span multiple lines if it contains:
+/// - Multi-line quoted strings
+/// - Multi-line brace literals {...}
+/// - Multi-line bracket literals [...]
+fn parse_property_line(input: &str) -> IResult<&str, String> {
+    let mut accumulated = String::new();
+    let mut remaining = input;
+    let mut in_string = false;
+    let mut escape_next = false;
+    let mut brace_depth: i32 = 0;
+    let mut bracket_depth: i32 = 0;
+    let mut line_count = 0;
+
+    loop {
+        // Parse one line
+        let (next_input, line) = not_line_ending(remaining)?;
+        let (next_input, _) = opt(line_ending).parse(next_input)?;
+
+        line_count += 1;
+        if line_count > 1 {
+            accumulated.push('\n');
+        }
+        accumulated.push_str(line);
+
+        // Track string state, brace depth, and bracket depth in this line
+        for ch in line.chars() {
+            if escape_next {
+                escape_next = false;
+                continue;
+            }
+
+            if in_string {
+                match ch {
+                    '\\' => escape_next = true,
+                    '"' => in_string = false,
+                    _ => {}
+                }
+            } else {
+                match ch {
+                    '"' => in_string = true,
+                    '{' => brace_depth += 1,
+                    '}' => brace_depth = brace_depth.saturating_sub(1),
+                    '[' => bracket_depth += 1,
+                    ']' => bracket_depth = bracket_depth.saturating_sub(1),
+                    _ => {}
+                }
+            }
+        }
+
+        // If we're not in a string and all braces/brackets are closed, we're done
+        if !in_string && brace_depth == 0 && bracket_depth == 0 {
+            return Ok((next_input, accumulated));
+        }
+
+        // Continue to next line if we're still inside a structure
+        remaining = next_input;
+
+        // Safety check: don't consume entire file
+        if remaining.is_empty() {
+            // Unclosed structure - return what we have
+            return Ok((remaining, accumulated));
+        }
     }
 }
 

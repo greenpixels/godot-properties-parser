@@ -37,12 +37,54 @@ fn parse_property(input: &str) -> IResult<&str, UntypedProperty> {
 }
 
 fn parse_key(input: &str) -> IResult<&str, &str> {
-    take_while1(|c: char| c.is_alphanumeric() || c == '_')(input)
+    take_while1(|c: char| c.is_alphanumeric() || c == '_' || c == '/')(input)
 }
 
 fn parse_value(input: &str) -> IResult<&str, &str> {
-    let mut parser = alt((parse_array_value, parse_quoted_string, parse_unquoted_value));
+    let mut parser = alt((
+        parse_dict_value,
+        parse_array_value,
+        parse_quoted_string,
+        parse_unquoted_value,
+    ));
     parser.parse(input)
+}
+
+fn parse_dict_value(input: &str) -> IResult<&str, &str> {
+    let start = input;
+    let (input, _) = char('{')(input)?;
+    let (input, _) = parse_dict_content(input)?;
+    let (input, _) = char('}')(input)?;
+    let consumed_len = start.len() - input.len();
+    Ok((input, &start[..consumed_len]))
+}
+
+fn parse_dict_content(input: &str) -> IResult<&str, ()> {
+    let mut depth = 0i32;
+    let mut in_string = false;
+    let mut escape_next = false;
+
+    for (idx, ch) in input.char_indices() {
+        if escape_next {
+            escape_next = false;
+            continue;
+        }
+
+        match ch {
+            '\\' if in_string => escape_next = true,
+            '"' => in_string = !in_string,
+            '{' if !in_string => depth += 1,
+            '}' if !in_string => {
+                if depth == 0 {
+                    return Ok((&input[idx..], ()));
+                }
+                depth -= 1;
+            }
+            _ => {}
+        }
+    }
+
+    Ok((input, ()))
 }
 
 fn parse_array_value(input: &str) -> IResult<&str, &str> {
