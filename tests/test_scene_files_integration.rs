@@ -184,10 +184,7 @@ fn test_all_scene_files_parse() {
             "table_selection_entry.tscn",
             include_str!("scenes/table_selection_entry.tscn"),
         ),
-        (
-            "play_room.tscn",
-            include_str!("scenes/play_room.tscn"),
-        ),
+        ("play_room.tscn", include_str!("scenes/play_room.tscn")),
     ];
 
     for (name, content) in &scene_files {

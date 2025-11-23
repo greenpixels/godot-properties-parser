@@ -18,31 +18,41 @@ fn strip_comments_and_preamble(input: &str) -> String {
 fn test_parses_sections_after_cleanup() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let result = parse_project_file(&cleaned);
-    
-    assert!(result.is_ok(), "Failed to parse cleaned content: {:?}", result.err());
+
+    assert!(
+        result.is_ok(),
+        "Failed to parse cleaned content: {:?}",
+        result.err()
+    );
 }
 
 #[test]
 fn test_has_application_section() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let (_, project) = parse_project_file(&cleaned).unwrap();
-    
-    assert!(project.application.is_some(), "Project should have application section");
+
+    assert!(
+        project.application.is_some(),
+        "Project should have application section"
+    );
 }
 
 #[test]
 fn test_has_autoload_section() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let (_, project) = parse_project_file(&cleaned).unwrap();
-    
-    assert!(project.autoload.is_some(), "Project should have autoload section");
+
+    assert!(
+        project.autoload.is_some(),
+        "Project should have autoload section"
+    );
 }
 
 #[test]
 fn test_has_input_section() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let (_, project) = parse_project_file(&cleaned).unwrap();
-    
+
     assert!(project.input.is_some(), "Project should have input section");
 }
 
@@ -50,23 +60,29 @@ fn test_has_input_section() {
 fn test_has_rendering_section() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let (_, project) = parse_project_file(&cleaned).unwrap();
-    
-    assert!(project.rendering.is_some(), "Project should have rendering section");
+
+    assert!(
+        project.rendering.is_some(),
+        "Project should have rendering section"
+    );
 }
 
 #[test]
 fn test_has_display_section() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let (_, project) = parse_project_file(&cleaned).unwrap();
-    
-    assert!(project.display.is_some(), "Project should have display section");
+
+    assert!(
+        project.display.is_some(),
+        "Project should have display section"
+    );
 }
 
 #[test]
 fn test_section_count() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let (_, project) = parse_project_file(&cleaned).unwrap();
-    
+
     assert_eq!(project.all_sections.len(), 18, "Expected 18 sections");
 }
 
@@ -74,7 +90,7 @@ fn test_section_count() {
 fn test_all_sections_categorized() {
     let cleaned = strip_comments_and_preamble(PROJECT_CONTENT);
     let (_, project) = parse_project_file(&cleaned).unwrap();
-    
+
     // Count categorized sections
     let categorized = [
         project.application.is_some() as usize,
@@ -89,8 +105,13 @@ fn test_all_sections_categorized() {
         project.layer_names.is_some() as usize,
         project.physics.is_some() as usize,
         project.rendering.is_some() as usize,
-    ].iter().sum::<usize>();
-    
+    ]
+    .iter()
+    .sum::<usize>();
+
     // Some sections might not be in our categorized list
-    assert!(categorized > 0, "Should have at least some categorized sections");
+    assert!(
+        categorized > 0,
+        "Should have at least some categorized sections"
+    );
 }

@@ -77,7 +77,33 @@ impl Default for SceneFile {
     }
 }
 
-/// Parse a Godot scene file (.tscn) and return a structured SceneFile
+/// Parses a Godot scene file (`.tscn`) into a structured `SceneFile`.
+///
+/// Scene files define game objects, their components, and relationships. This parser
+/// categorizes sections into `ext_resources`, `sub_resources`, `nodes`, `connections`,
+/// and `editables` for easy access, while preserving all sections in `all_sections`.
+///
+/// # Arguments
+///
+/// * `input` - The complete `.tscn` file content as a string
+///
+/// # Returns
+///
+/// * `Ok((remaining, SceneFile))` - Successfully parsed scene with any unconsumed input
+/// * `Err(nom::Err)` - Parse error if the file format is invalid
+///
+/// # Example
+///
+/// ```no_run
+/// use godot_properties_parser::parse_scene_file;
+/// use std::fs;
+///
+/// let content = fs::read_to_string("scene.tscn").unwrap();
+/// let (remaining, scene) = parse_scene_file(&content).unwrap();
+///
+/// println!("Nodes: {}", scene.nodes.len());
+/// println!("Resources: {}", scene.ext_resources.len());
+/// ```
 pub fn parse_scene_file(input: &str) -> IResult<&str, SceneFile> {
     let (remaining, property_file) = parse_property_file(input)?;
     let scene_file = SceneFile::from_property_file(property_file);

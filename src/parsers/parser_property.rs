@@ -12,6 +12,7 @@ pub struct UntypedProperty {
     pub value: String,
 }
 
+#[doc(hidden)]
 pub fn properties0(input: &str) -> IResult<&str, Vec<UntypedProperty>> {
     let (input, _) = multispace0(input)?;
 

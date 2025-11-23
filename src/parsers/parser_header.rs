@@ -2,6 +2,7 @@ use nom::{IResult, bytes::complete::take_while1, character::complete::char};
 
 /// Parses a header like "[gdscene something=[1, 2, 3]]" and returns "gdscene"
 /// along with the remaining input after the closing bracket.
+#[doc(hidden)]
 pub fn parse_header_type_and_consume_enclosure(input: &str) -> IResult<&str, &str> {
     let (input, _) = char('[')(input)?;
     let (input, header_type) = take_while1(|c: char| c.is_alphanumeric() || c == '_')(input)?;

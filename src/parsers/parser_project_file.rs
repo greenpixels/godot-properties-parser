@@ -1,4 +1,4 @@
-use super::parser_property_file::{parse_property_file, PropertyFile, Section};
+use super::parser_property_file::{PropertyFile, Section, parse_property_file};
 use nom::IResult;
 
 #[derive(Debug, PartialEq, Clone)]
@@ -113,7 +113,37 @@ impl Default for ProjectFile {
     }
 }
 
-/// Parse a Godot project file (.godot) and return a structured ProjectFile
+/// Parses a Godot project file (`.godot`) into a structured `ProjectFile`.
+///
+/// Project files contain global configuration for a Godot project, including application
+/// settings, autoloads, input mappings, and rendering options. This parser categorizes
+/// known sections (`application`, `audio`, `autoload`, etc.) while preserving all sections
+/// including custom ones in `all_sections`.
+///
+/// # Arguments
+///
+/// * `input` - The complete `.godot` file content as a string
+///
+/// # Returns
+///
+/// * `Ok((remaining, ProjectFile))` - Successfully parsed project with any unconsumed input
+/// * `Err(nom::Err)` - Parse error if the file format is invalid
+///
+/// # Example
+///
+/// ```no_run
+/// use godot_properties_parser::parse_project_file;
+/// use std::fs;
+///
+/// let content = fs::read_to_string("project.godot").unwrap();
+/// let (remaining, project) = parse_project_file(&content).unwrap();
+///
+/// if let Some(app) = project.application {
+///     for prop in &app.properties {
+///         println!("{}: {}", prop.key, prop.value);
+///     }
+/// }
+/// ```
 pub fn parse_project_file(input: &str) -> IResult<&str, ProjectFile> {
     let (remaining, property_file) = parse_property_file(input)?;
     let project_file = ProjectFile::from_property_file(property_file);

@@ -5,8 +5,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-  release:
-    types: [created]
 
 jobs:
   test:
@@ -16,13 +14,20 @@ jobs:
 
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Check formatting
+        run: cargo fmt --check
+
+      - name: Run clippy
+        run: cargo clippy -- -D warnings
+
+      - name: Build release
+        run: cargo build --release
 
       - name: Run tests
         run: cargo test
 
-  create-release:
-    if: github.event_name == 'release'
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
+      - name: Check documentation
+        run: cargo doc --no-deps

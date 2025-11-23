@@ -19,8 +19,40 @@ pub struct PropertyFile {
     pub sections: Vec<Section>,
 }
 
-/// Parses a complete property file (like .tscn or .godot files) into sections.
-/// Each section has a header like [gd_scene ...] followed by optional properties.
+/// Parses any Godot property file into generic sections with key-value pairs.
+///
+/// This is a low-level parser that returns untyped sections and properties without
+/// categorization. Use `parse_scene_file` or `parse_project_file` for structured
+/// access to specific file types.
+///
+/// Each section starts with `[header_type ...]` and contains key-value properties.
+/// This parser handles `.tscn`, `.godot`, `.tres`, and similar Godot file formats.
+///
+/// # Arguments
+///
+/// * `input` - The complete file content as a string
+///
+/// # Returns
+///
+/// * `Ok((remaining, PropertyFile))` - Successfully parsed file with sections
+/// * `Err(nom::Err)` - Parse error if the file format is invalid
+///
+/// # Example
+///
+/// ```no_run
+/// use godot_properties_parser::parse_property_file;
+/// use std::fs;
+///
+/// let content = fs::read_to_string("file.tscn").unwrap();
+/// let (remaining, property_file) = parse_property_file(&content).unwrap();
+///
+/// for section in &property_file.sections {
+///     println!("Section: {}", section.header_type);
+///     for prop in &section.properties {
+///         println!("  {}: {}", prop.key, prop.value);
+///     }
+/// }
+/// ```
 pub fn parse_property_file(input: &str) -> IResult<&str, PropertyFile> {
     let (input, _) = multispace0(input)?;
     let (input, sections) = many0(parse_section).parse(input)?;
