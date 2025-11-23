@@ -2,6 +2,8 @@
 
 A Rust parser for Godot Engine files.
 
+**Note:** All properties are parsed as key-value pairs of strings. More specific typing needs to be implemented by the user.
+
 ## Installation
 
 ```bash
