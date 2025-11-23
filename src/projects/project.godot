@@ -1,0 +1,247 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+
+[application]
+
+config/name="Gamblers Table"
+config/version="1.0.4"
+run/main_scene="uid://hmkin06akodv"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/use_filter=false
+boot_splash/image="uid://c6ov1v5ar2h1c"
+config/icon="uid://dujhof1l1m4l1"
+boot_splash/minimum_display_time=2300
+
+[audio]
+
+buses/default_bus_layout="uid://b1nrkdo1fmbib"
+
+[autoload]
+
+ApplicationContext="*res://autoload/application_context/application_context.gd"
+SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
+EventBus="*res://autoload/event_bus/event_bus.tscn"
+GameContext="*res://autoload/game_context/game_context.tscn"
+ControlPreloader="*res://autoload/control_preloader/control_preloader.gd"
+NotificationContainer="*res://autoload/notification_container/notification_container.tscn"
+TooltipOverlay="*res://addons/godot_tooltip_component_by_greenpixels/lib/core/tooltip_overlay/tooltip_overlay.tscn"
+FloatingTextObjectPool="*res://ui/floating_text/floating_text_object_pool/floating_text_object_pool.tscn"
+GameValuesContext="*res://autoload/game_values_context/game_values_context.gd"
+LimboConsole="*res://addons/limbo_console/limbo_console.gd"
+LimboManager="*res://autoload/limbo_manager/limbo_manager.gd"
+OptionsMenu="*res://ui/options_menu/options_menu.tscn"
+AudioManager="*res://autoload/audio_manager/audio_manager.tscn"
+TransitionHandler="*res://addons/greenpixels-simple-transition/transition_handler.tscn"
+ControllerContext="*res://autoload/controller_context/controller_context.tscn"
+VerySimpleTwitch="*res://addons/very-simple-twitch/twitch_node.gd"
+TwitchChatConnection="*res://autoload/twitch_chat_connection/twitch_chat_connection.tscn"
+ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
+GameAnalytics="*res://autoload/game_analytics/game_analytics.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="Gamblers Table"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/collapsible_container/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/limbo_console/plugin.cfg", "res://addons/radial_progress/plugin.cfg", "res://addons/signal_lens/plugin.cfg", "res://addons/very-simple-twitch/plugin.cfg")
+
+[gdunit4]
+
+report/godot/push_error=true
+settings/test/test_discovery=true
+ui/toolbar/run_overall=true
+settings/common/update_notification_enabled=false
+
+[global_group]
+
+tooltip_trigger=""
+large_coin_shockwave_target=""
+medium_coin_shockwave_target=""
+platinum_coin_shockwave_target=""
+diamond_coin_shockwave_target=""
+rooms=""
+
+[gui]
+
+theme/custom="uid://bmceb367p3pue"
+theme/custom_font="res://assets/fonts/jersey_10_regular.ttf"
+
+[input]
+
+ui_text_scroll_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"command_or_control_autoremap":true,"alt_pressed":false,"shift_pressed":false,"pressed":false,"keycode":4194320,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+limbo_console_toggle={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194332,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+limbo_auto_complete_reverse={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194306,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+trigger_coin={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(263, 14),"global_position":Vector2(272, 62),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+controller_steer_left={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":-1.0,"script":null)
+]
+}
+controller_steer_right={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
+]
+}
+controller_steer_up={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":-1.0,"script":null)
+]
+}
+controller_steer_down={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
+]
+}
+controller_click_select={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":5,"axis_value":1.0,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+controller_scroll_up={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+controller_scroll_down={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+controller_move_skill_tree_left={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":-1.0,"script":null)
+]
+}
+controller_move_skill_tree_right={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
+]
+}
+controller_move_skill_tree_up={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":-1.0,"script":null)
+]
+}
+controller_move_skill_tree_down={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
+]
+}
+controller_click_secondary={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+skill_point={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(318, 16),"global_position":Vector2(327, 64),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, null, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+unskill_point={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(422, 27),"global_position":Vector2(431, 75),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+zoom_in={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+zoom_out={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+move_skill_tree={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":4,"position":Vector2(288, 23),"global_position":Vector2(297, 71),"factor":1.0,"button_index":3,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
+]
+}
+toggle_options={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/localized_misc.de.translation", "res://localization/localized_misc.en.translation", "res://localization/localized_purchasables.de.translation", "res://localization/localized_purchasables.en.translation", "res://localization/localized_shop.de.translation", "res://localization/localized_shop.en.translation", "res://localization/localized_options.de.translation", "res://localization/localized_options.en.translation", "res://localization/localized_stats_overview.de.translation", "res://localization/localized_stats_overview.en.translation", "res://localization/localized_skill_tree.de.translation", "res://localization/localized_skill_tree.en.translation", "res://localization/localized_misc.es.translation", "res://localization/localized_misc.fr.translation", "res://localization/localized_misc.it.translation", "res://localization/localized_misc.pl.translation", "res://localization/localized_misc.ru.translation", "res://localization/localized_misc.zh_CN.translation", "res://localization/localized_options.es.translation", "res://localization/localized_options.fr.translation", "res://localization/localized_options.it.translation", "res://localization/localized_options.pl.translation", "res://localization/localized_options.ru.translation", "res://localization/localized_options.zh_CN.translation", "res://localization/localized_purchasables.es.translation", "res://localization/localized_purchasables.fr.translation", "res://localization/localized_purchasables.it.translation", "res://localization/localized_purchasables.pl.translation", "res://localization/localized_purchasables.ru.translation", "res://localization/localized_purchasables.zh_CN.translation", "res://localization/localized_shop.es.translation", "res://localization/localized_shop.fr.translation", "res://localization/localized_shop.it.translation", "res://localization/localized_shop.pl.translation", "res://localization/localized_shop.ru.translation", "res://localization/localized_shop.zh_CN.translation", "res://localization/localized_skill_tree.es.translation", "res://localization/localized_skill_tree.fr.translation", "res://localization/localized_skill_tree.it.translation", "res://localization/localized_skill_tree.pl.translation", "res://localization/localized_skill_tree.zh_CN.translation", "res://localization/localized_stats_overview.es.translation", "res://localization/localized_stats_overview.fr.translation", "res://localization/localized_stats_overview.it.translation", "res://localization/localized_stats_overview.pl.translation", "res://localization/localized_stats_overview.ru.translation", "res://localization/localized_stats_overview.zh_CN.translation", "res://localization/localized_skill_tree.ru.translation", "res://localization/localized_achievements.de.translation", "res://localization/localized_achievements.en.translation", "res://localization/localized_achievements.es.translation", "res://localization/localized_achievements.fr.translation", "res://localization/localized_achievements.it.translation", "res://localization/localized_achievements.pl.translation", "res://localization/localized_achievements.ru.translation", "res://localization/localized_achievements.zh_CN.translation", "res://localization/localized_achievements.ja.translation", "res://localization/localized_achievements.pt_BR.translation", "res://localization/localized_achievements.tr.translation", "res://localization/localized_misc.ja.translation", "res://localization/localized_misc.pt_BR.translation", "res://localization/localized_misc.tr.translation", "res://localization/localized_options.ja.translation", "res://localization/localized_options.pt_BR.translation", "res://localization/localized_options.tr.translation", "res://localization/localized_skill_tree.ja.translation", "res://localization/localized_skill_tree.pt_BR.translation", "res://localization/localized_skill_tree.tr.translation", "res://localization/localized_purchasables.ja.translation", "res://localization/localized_purchasables.pt_BR.translation", "res://localization/localized_purchasables.tr.translation", "res://localization/localized_shop.ja.translation", "res://localization/localized_shop.pt_BR.translation", "res://localization/localized_shop.tr.translation", "res://localization/localized_stats_overview.ja.translation", "res://localization/localized_stats_overview.pt_BR.translation", "res://localization/localized_stats_overview.tr.translation", "res://localization/localized_achievements.kr.translation", "res://localization/localized_achievements.pt_PT.translation", "res://localization/localized_achievements.zn_TW.translation", "res://localization/localized_misc.kr.translation", "res://localization/localized_misc.pt_PT.translation", "res://localization/localized_misc.zh_TW.translation", "res://localization/localized_options.kr.translation", "res://localization/localized_options.pt_PT.translation", "res://localization/localized_purchasables.kr.translation", "res://localization/localized_purchasables.pt_PT.translation", "res://localization/localized_purchasables.zh_TW.translation", "res://localization/localized_shop.kr.translation", "res://localization/localized_shop.pt_PT.translation", "res://localization/localized_shop.zh_TW.translation", "res://localization/localized_skill_tree.kr.translation", "res://localization/localized_skill_tree.pt_PT.translation", "res://localization/localized_skill_tree.zh_TW.translation", "res://localization/localized_stats_overview.kr.translation", "res://localization/localized_stats_overview.pt_PT.translation", "res://localization/localized_stats_overview.zn_TW.translation", "res://localization/localized_hats.zh_TW.translation", "res://localization/localized_hats.zh_CN.translation", "res://localization/localized_hats.tr.translation", "res://localization/localized_hats.ru.translation", "res://localization/localized_hats.pt_PT.translation", "res://localization/localized_hats.pt_BR.translation", "res://localization/localized_hats.pl.translation", "res://localization/localized_hats.kr.translation", "res://localization/localized_hats.ja.translation", "res://localization/localized_hats.it.translation", "res://localization/localized_hats.fr.translation", "res://localization/localized_hats.es.translation", "res://localization/localized_hats.en.translation", "res://localization/localized_hats.de.translation")
+
+[layer_names]
+
+2d_physics/layer_1="coins"
+2d_physics/layer_2="helper"
+
+[physics]
+
+2d/run_on_separate_thread=true
+common/physics_ticks_per_second=20
+common/physics_jitter_fix=0.0
+common/physics_interpolation=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
+
+[steam]
+
+initialization/app_id=0
+initialization/initialize_on_startup=false
+initialization/embed_callbacks=false

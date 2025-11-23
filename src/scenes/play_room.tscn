@@ -1,0 +1,381 @@
+[gd_scene load_steps=46 format=3 uid="uid://dji6tdg6ku1xb"]
+
+[ext_resource type="Script" uid = "uid://cn71 6f5c3iux2" path="res://rooms/play_room/play_room.gd" id="1_bvibo"]
+[ext_resource type="PackedScene" uid="uid://dncs1sw4trcf2" path="res://ui/shop_sidebar/shop_sidebar.tscn" id="2_e7qwt"]
+[ext_resource type="Texture2D" uid="uid://can5eils5trad" path="res://assets/images/tables/table_marmor.png" id="3_f8flj"]
+[ext_resource type="PackedScene" uid="uid://c6w84rshktxt8" path="res://ui/coin_background/coin_background.tscn" id="4_a54t0"]
+[ext_resource type="Texture2D" uid="uid://0buwwpljst5j" path="res://assets/images/tables/table_poker.png" id="4_ulkdq"]
+[ext_resource type="Script" uid="uid://pan6k5hoeydh" path="res://rooms/play_room/camera_2_d/camera_2_d.gd" id="5_758co"]
+[ext_resource type="Shader" uid="uid://bnw7v2ybum1eu" path="res://assets/shaders/circles_sdf.gdshader" id="5_a54t0"]
+[ext_resource type="Texture2D" uid="uid://capi7bx5lqrhe" path="res://assets/images/tables/default_tablecloth.png" id="6_8bim5"]
+[ext_resource type="Script" uid="uid://c21qfpdtejeki" path="res://rooms/play_room/tablecloth_loader/tablecloth_loader.gd" id="6_phhqy"]
+[ext_resource type="Script" uid="uid://dmf8c708vxlfu" path="res://rooms/play_room/coin_grid_handler/coin_grid_handler.gd" id="6_xf256"]
+[ext_resource type="Texture2D" uid="uid://dg0rshb2a5i6b" path="res://assets/images/tables/table_normal.png" id="7_ysy6v"]
+[ext_resource type="Script" uid="uid://dg4lsvba8h8gj" path="res://rooms/play_room/item_pusher/item_pusher.gd" id="9_7olyp"]
+[ext_resource type="PackedScene" uid="uid://f2xg7bbu6x6s" path="res://ui/options_button/options_button.tscn" id="9_dnhbv"]
+[ext_resource type="PackedScene" uid="uid://cgjad6ya8iurk" path="res://ui/wishlist_button/wishlist_button.tscn" id="11_7olyp"]
+[ext_resource type="PackedScene" uid="uid://cvp2f2x2n6lwf" path="res://ui/juicy_button_effect_on_parent/juicy_button_effect_on_parent.tscn" id="12_1n05h"]
+[ext_resource type="Texture2D" uid="uid://rkta85gw0s6h" path="res://assets/images/achievements/achievement_icon.png" id="13_2o75q"]
+[ext_resource type="PackedScene" uid="uid://bak1bg5v1gu7i" path="res://ui/disclaimer_startup/disclaimer_start_up.tscn" id="13_b042i"]
+[ext_resource type="Texture2D" uid="uid://bqjxamt70rm5v" path="res://assets/images/icons/info_icon.png" id="14_yskyy"]
+[ext_resource type="Texture2D" uid="uid://lqvdnc4n1k6r" path="res://assets/images/icons/hat_machine.png" id="15_2f4ie"]
+[ext_resource type="PackedScene" uid="uid://dkkssef0wma2p" path="res://ui/skill_tree_button/skill_tree_button.tscn" id="15_2o75q"]
+[ext_resource type="PackedScene" uid="uid://nse21cx3c1gw" path="res://autoload/twitch_chat_connection/twitch_chat_connection.tscn" id="15_g4p5e"]
+[ext_resource type="PackedScene" uid="uid://blc7ae3b700n6" path="res://ui/disclaimer_demo_end/disclaimer_demo_end.tscn" id="15_p0ill"]
+[ext_resource type="PackedScene" uid="uid://df8oemmott1ve" path="res://ui/capsule_modal/capsule_modal.tscn" id="19_lo17o"]
+[ext_resource type="PackedScene" uid="uid://b158usr7xslid" path="res://ui/blur_component/blur_component.tscn" id="20_2f4ie"]
+[ext_resource type="PackedScene" uid="uid://df7rx0vhjtbce" path="res://ui/skill_tree_modal/skill_tree_modal.tscn" id="20_2r2rb"]
+[ext_resource type="Script" uid="uid://cmd8cvo5bj45v" path="res://rooms/play_room/prestige_animation_handler/prestige_animation_handler.gd" id="22_jwxf2"]
+[ext_resource type="PackedScene" uid="uid://cglk035p8us1c" path="res://ui/lower_sidebar/lower_sidebar.tscn" id="22_lo17o"]
+[ext_resource type="Texture2D" uid="uid://cxiq080iyysp3" path="res://assets/images/sacrifice/sacrifice_animation_opening_spritesheet.png" id="23_o771f"]
+[ext_resource type="Script" uid="uid://0y72js47q3ek" path="res://rooms/play_room/sdf_circles_container/sdf_circles_container.gd" id="24_bn1s1"]
+[ext_resource type="Texture2D" uid="uid://ck02ywk54dstr" path="res://assets/images/sacrifice/sacrifice_animation_idle_spritesheet.png" id="24_shme2"]
+[ext_resource type="Shader" uid="uid://c0ax7fhhrq7kg" path="res://assets/shaders/vignette.gdshader" id="25_m56ot"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_758co"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7olyp"]
+shader = ExtResource("5_a54t0")
+shader_parameter/positions = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/outline_color = Color(0.25, 1, 0.9375, 0.47451)
+
+[sub_resource type="Gradient" id="Gradient_2r2rb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2o75q"]
+gradient = SubResource("Gradient_2r2rb")
+width = 384
+height = 216
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ulkdq"]
+shader = ExtResource("25_m56ot")
+shader_parameter/alpha = 0.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f4ie"]
+atlas = ExtResource("24_shme2")
+region = Rect2(0, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryivu"]
+atlas = ExtResource("24_shme2")
+region = Rect2(768, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if5oc"]
+atlas = ExtResource("24_shme2")
+region = Rect2(1536, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrckw"]
+atlas = ExtResource("24_shme2")
+region = Rect2(2304, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykm6l"]
+atlas = ExtResource("24_shme2")
+region = Rect2(3072, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmyp0"]
+atlas = ExtResource("24_shme2")
+region = Rect2(3840, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3ojg"]
+atlas = ExtResource("24_shme2")
+region = Rect2(4608, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spcc3"]
+atlas = ExtResource("24_shme2")
+region = Rect2(5376, 0, 768, 432)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suuvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f4ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryivu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if5oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrckw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykm6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmyp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3ojg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spcc3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="PlayRoom" type="Node2D"]
+script = ExtResource("1_bvibo")
+table_sprites = Dictionary[String, Texture2D]({
+"marmor": ExtResource("3_f8flj"),
+"normal": ExtResource("7_ysy6v"),
+"poker": ExtResource("4_ulkdq")
+})
+
+[node name="CoinBackground" parent="." instance=ExtResource("4_a54t0")]
+unique_name_in_owner = true
+z_index = -2
+
+[node name="Table" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(578, 324)
+texture = ExtResource("7_ysy6v")
+
+[node name="TableCloth" type="Sprite2D" parent="Table"]
+unique_name_in_owner = true
+position = Vector2(-91, 5)
+texture = ExtResource("6_8bim5")
+offset = Vector2(0, 0.5)
+script = ExtResource("6_phhqy")
+
+[node name="Interactables" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(496, 314)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("room", "ui")]
+position = Vector2(578, 324)
+zoom = Vector2(1.5, 1.5)
+process_callback = 0
+script = ExtResource("5_758co")
+room = NodePath("..")
+ui = NodePath("../UI")
+
+[node name="InitialViewBlocker" type="Sprite2D" parent="Camera2D"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-37, 0.499985)
+scale = Vector2(692, 431)
+texture = SubResource("PlaceholderTexture2D_758co")
+
+[node name="ItemPusher" type="Node2D" parent="."]
+script = ExtResource("9_7olyp")
+
+[node name="CoinGridHandler" type="Node2D" parent="."]
+script = ExtResource("6_xf256")
+metadata/_custom_type_script = "uid://dmf8c708vxlfu"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 179.0
+offset_top = 6.0
+offset_right = -415.0
+offset_bottom = 56.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="UI/CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+dragger_visibility = 1
+
+[node name="Money" type="RichTextLabel" parent="UI/CenterContainer/HSplitContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "0"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MoneySymbol" type="RichTextLabel" parent="UI/CenterContainer/HSplitContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.890408, 0.58563, 1.15514e-06, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "CURRENCY"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ButtonGroup" type="HBoxContainer" parent="UI"]
+offset_left = 8.0
+offset_top = 579.0
+offset_right = 120.0
+offset_bottom = 619.0
+scale = Vector2(1.75, 1.75)
+
+[node name="OptionsButton" parent="UI/ButtonGroup" instance=ExtResource("9_dnhbv")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="InfoButton" type="TextureButton" parent="UI/ButtonGroup"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("14_yskyy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="JuicyButtonEffectOnParent" parent="UI/ButtonGroup/InfoButton" instance=ExtResource("12_1n05h")]
+
+[node name="AchievementButton" type="TextureButton" parent="UI/ButtonGroup"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("13_2o75q")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="JuicyButtonEffectOnParent" parent="UI/ButtonGroup/AchievementButton" instance=ExtResource("12_1n05h")]
+
+[node name="ButtonGroup2" type="HBoxContainer" parent="UI"]
+offset_left = 675.0
+offset_top = 579.0
+offset_right = 779.0
+offset_bottom = 619.0
+scale = Vector2(1.75, 1.75)
+alignment = 2
+
+[node name="CapsuleButton" type="TextureButton" parent="UI/ButtonGroup2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("15_2f4ie")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="JuicyButtonEffectOnParent" parent="UI/ButtonGroup2/CapsuleButton" instance=ExtResource("12_1n05h")]
+
+[node name="SkillTreeButton" parent="UI" instance=ExtResource("15_2o75q")]
+offset_top = -50.0
+offset_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+offset_left = 868.0
+offset_top = 4.0
+offset_right = 1149.0
+offset_bottom = 644.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/minimum_grab_thickness = 45
+theme_override_constants/autohide = 0
+split_offset = 80
+
+[node name="UpperSidebar" parent="UI/VBoxContainer/VSplitContainer" instance=ExtResource("2_e7qwt")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LowerSidebar" parent="UI/VBoxContainer/VSplitContainer" instance=ExtResource("22_lo17o")]
+layout_mode = 2
+
+[node name="WishlistButton" parent="UI/VBoxContainer" instance=ExtResource("11_7olyp")]
+layout_mode = 2
+
+[node name="Blur" parent="UI" instance=ExtResource("20_2f4ie")]
+visible = false
+
+[node name="SkillTreeContainer" parent="UI" instance=ExtResource("20_2r2rb")]
+unique_name_in_owner = true
+visible = false
+offset_left = -526.0
+offset_top = -239.0
+offset_right = 253.0
+offset_bottom = 204.0
+
+[node name="DemoEndDisclaimer" parent="UI" instance=ExtResource("15_p0ill")]
+unique_name_in_owner = true
+visible = false
+offset_left = -439.0
+offset_top = -247.0
+offset_right = 181.0
+offset_bottom = 203.0
+
+[node name="IntroductionDisclaimer" parent="UI" instance=ExtResource("13_b042i")]
+unique_name_in_owner = true
+visible = false
+offset_left = -439.0
+offset_top = -247.0
+offset_right = 181.0
+offset_bottom = 203.0
+
+[node name="CapsuleGameModal" parent="UI" instance=ExtResource("19_lo17o")]
+visible = false
+offset_left = -438.0
+offset_top = -243.0
+offset_right = 182.0
+offset_bottom = 207.0
+
+[node name="HelperTargetUpdateTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+ignore_time_scale = true
+
+[node name="SDFCirclesContainer" type="Sprite2D" parent="." node_paths=PackedStringArray("play_room")]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_7olyp")
+position = Vector2(578, 324)
+scale = Vector2(2, 2)
+texture = SubResource("GradientTexture2D_2o75q")
+script = ExtResource("24_bn1s1")
+play_room = NodePath("..")
+
+[node name="TwitchChatConnection" parent="." instance=ExtResource("15_g4p5e")]
+
+[node name="PrestigeAnimationHandler" type="Node" parent="." node_paths=PackedStringArray("play_room")]
+unique_name_in_owner = true
+physics_interpolation_mode = 2
+script = ExtResource("22_jwxf2")
+play_room = NodePath("..")
+
+[node name="Vignette" type="ColorRect" parent="PrestigeAnimationHandler"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_ulkdq")
+offset_left = -140.0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="MouthOpenAnimation" type="Sprite2D" parent="PrestigeAnimationHandler"]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+z_as_relative = false
+position = Vector2(578, 324)
+texture = ExtResource("23_o771f")
+hframes = 7
+
+[node name="MouthIdleAnimation" type="AnimatedSprite2D" parent="PrestigeAnimationHandler"]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+z_as_relative = false
+position = Vector2(578, 324)
+sprite_frames = SubResource("SpriteFrames_suuvk")
+autoplay = "default"
+frame_progress = 0.373275
+
+[connection signal="intro_ended" from="Camera2D" to="." method="_on_camera_2d_intro_ended"]
+[connection signal="pressed" from="UI/ButtonGroup/InfoButton" to="UI/IntroductionDisclaimer" method="toggle"]
+[connection signal="pressed" from="UI/ButtonGroup/AchievementButton" to="." method="_on_achievement_button_pressed"]
+[connection signal="mouse_entered" from="UI/ButtonGroup2/CapsuleButton" to="." method="_on_capsule_button_mouse_entered"]
+[connection signal="pressed" from="UI/ButtonGroup2/CapsuleButton" to="UI/CapsuleGameModal" method="toggle"]
+[connection signal="sold_something" from="UI/VBoxContainer/VSplitContainer/UpperSidebar" to="." method="_on_shop_sold_something"]
+[connection signal="on_outside_clicked" from="UI/Blur" to="UI/Blur" method="_on_on_outside_clicked"]
+[connection signal="on_outside_clicked" from="UI/Blur" to="UI/SkillTreeContainer" method="_on_close_button_pressed"]
+[connection signal="on_outside_clicked" from="UI/Blur" to="UI/DemoEndDisclaimer" method="minimize"]
+[connection signal="on_outside_clicked" from="UI/Blur" to="UI/IntroductionDisclaimer" method="minimize"]
+[connection signal="on_outside_clicked" from="UI/Blur" to="UI/CapsuleGameModal" method="minimize"]
+[connection signal="timeout" from="HelperTargetUpdateTimer" to="." method="_on_helper_target_update_timer_timeout"]

@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://fikdstpjctwm"]
+
+[ext_resource type="Script" uid="uid://bkggu7w7mqbso" path="res://ui/table_selection_entry/table_selection_entry.gd" id="1_gp4eb"]
+[ext_resource type="Texture2D" uid="uid://dgjafntynm0fc" path="res://assets/images/skill_tree/skill_tree_sprites.png" id="2_234br"]
+[ext_resource type="Resource" uid="uid://re6b7f21lj0m" path="res://resources/tables/all/bloody_table.tres" id="2_gp4eb"]
+[ext_resource type="Shader" uid="uid://h4fmpewoggwm" path="res://assets/shaders/grayscale.gdshader" id="3_234br"]
+[ext_resource type="PackedScene" uid="uid://cvp2f2x2n6lwf" path="res://ui/juicy_button_effect_on_parent/juicy_button_effect_on_parent.tscn" id="5_1g2i3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp4eb"]
+bg_color = Color(0.129412, 0.129412, 0.160784, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.286275)
+shadow_size = 6
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1g2i3"]
+resource_local_to_scene = true
+shader = ExtResource("3_234br")
+shader_parameter/is_enabled = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5uaj"]
+atlas = ExtResource("2_234br")
+region = Rect2(80, 360, 40, 40)
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(450, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -702.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gp4eb")
+script = ExtResource("1_gp4eb")
+table = ExtResource("2_gp4eb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TablePreview" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1g2i3")
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_f5uaj")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "TABLE_BLOODY_NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighestMoneyContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="HighestMoney" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HighestMoneyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 16
+text = "STATS_HIGHEST_MONEY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighestMoneyAmount" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HighestMoneyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 16
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectButton" type="Button" parent="." groups=["tooltip_trigger"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+autowrap_mode = 3
+
+[node name="JuicyButtonEffectOnParent" parent="SelectButton" node_paths=PackedStringArray("transform_target") instance=ExtResource("5_1g2i3")]
+transform_target = NodePath("../..")
+
+[connection signal="mouse_entered" from="SelectButton" to="." method="_on_select_button_mouse_entered"]
+[connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]

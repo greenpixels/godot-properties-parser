@@ -1,0 +1,287 @@
+[gd_scene load_steps=59 format=3 uid="uid://dncs1sw4trcf2"]
+
+[ext_resource type="Script" uid="uid://wk2aena8juka" path="res://ui/shop_sidebar/shop_sidebar.gd" id="1_ij0hf"]
+[ext_resource type="Script" uid="uid://dsgwt37fc27yv" path="res://resources/purchasables/purchasable.gd" id="2_dfemt"]
+[ext_resource type="Resource" uid="uid://cq50vyj5c24g0" path="res://resources/purchasables/all/items/small_coin.tres" id="3_sy81x"]
+[ext_resource type="Resource" uid="uid://i5ih22nxwquk" path="res://resources/purchasables/all/items/medium_coin.tres" id="4_jiadn"]
+[ext_resource type="Resource" uid="uid://da5klojvlqeck" path="res://resources/purchasables/all/items/large_coin.tres" id="5_t6jse"]
+[ext_resource type="Resource" uid="uid://b3ynqa4fujrya" path="res://resources/purchasables/all/upgrades/reflip_chance.tres" id="6_0ptf4"]
+[ext_resource type="Resource" uid="uid://xv5o3tm3x60h" path="res://resources/purchasables/all/items/helper.tres" id="7_3polh"]
+[ext_resource type="Resource" uid="uid://e8jy8uu6nr5x" path="res://resources/purchasables/all/upgrades/additional_coin_value_small.tres" id="8_4wb8u"]
+[ext_resource type="Resource" uid="uid://b7m3ljq0i05vb" path="res://resources/purchasables/all/upgrades/additional_coin_value_medium_final.tres" id="8_a1ooo"]
+[ext_resource type="Resource" uid="uid://dmd2a0q7iamiu" path="res://resources/purchasables/all/items/platinum_coin.tres" id="8_yqypp"]
+[ext_resource type="Resource" uid="uid://bu3mdmv1xs3ax" path="res://resources/purchasables/all/upgrades/hover_small_coins.tres" id="9_5tu1h"]
+[ext_resource type="Resource" uid="uid://y074yqnqxv1r" path="res://resources/purchasables/all/items/muscle_helper.tres" id="9_326bh"]
+[ext_resource type="Resource" uid="uid://c164b3xi38a0p" path="res://resources/purchasables/all/items/diamond_coin.tres" id="9_650uw"]
+[ext_resource type="Resource" uid="uid://kkxmkfiv11tb" path="res://resources/purchasables/all/items/missile.tres" id="10_7if7r"]
+[ext_resource type="Resource" uid="uid://pm7exbnbqfq3" path="res://resources/purchasables/all/upgrades/additional_coin_value_large.tres" id="10_b4g12"]
+[ext_resource type="Resource" uid="uid://dsxp6hslu1kdo" path="res://resources/purchasables/all/upgrades/coins_trigger_coins.tres" id="11_l1ieg"]
+[ext_resource type="Resource" uid="uid://bv8im1wb0eqmv" path="res://resources/purchasables/all/upgrades/additional_coin_value_multiplier_medium.tres" id="12_2myfl"]
+[ext_resource type="Resource" uid="uid://b1klycnptnff8" path="res://resources/purchasables/all/upgrades/helper_trigger_medium_coins.tres" id="13_4gcru"]
+[ext_resource type="Resource" uid="uid://dm7ndlu84y7k6" path="res://resources/purchasables/all/upgrades/additional_coin_value_multiplier_large.tres" id="13_nqph6"]
+[ext_resource type="Resource" uid="uid://bu3ausoahcrbg" path="res://resources/purchasables/all/upgrades/helper_trigger_large_coins.tres" id="14_b58fx"]
+[ext_resource type="Resource" uid="uid://1pr7qj16my1w" path="res://resources/purchasables/all/upgrades/coin_flip_speed_medium.tres" id="15_t6qt2"]
+[ext_resource type="Resource" uid="uid://bnwvx451wcxi1" path="res://resources/purchasables/all/upgrades/helper_efficiency.tres" id="15_wk6il"]
+[ext_resource type="Resource" uid="uid://gw6su3h8ouvx" path="res://resources/purchasables/all/upgrades/coin_flip_speed_large.tres" id="16_glg2o"]
+[ext_resource type="Resource" uid="uid://cjp4uhn6tplhb" path="res://resources/purchasables/all/upgrades/coin_flip_speed_small.tres" id="16_q0uhq"]
+[ext_resource type="Resource" uid="uid://cl7mpk6ocbjlm" path="res://resources/purchasables/all/upgrades/additional_coin_value_multiplier_small.tres" id="17_f7pud"]
+[ext_resource type="Resource" uid="uid://dkmp0irhx6agq" path="res://resources/purchasables/all/upgrades/coin_flip_speed_platinum.tres" id="26_650uw"]
+[ext_resource type="Resource" uid="uid://belkwnm6nbvik" path="res://resources/purchasables/all/upgrades/coin_flip_speed_diamond.tres" id="29_co06w"]
+[ext_resource type="Resource" uid="uid://d3ttf7wc75qsc" path="res://resources/purchasables/all/upgrades/helper_trigger_platinum_coins.tres" id="31_3idjk"]
+[ext_resource type="Resource" uid="uid://c8dsr2s8b0ygo" path="res://resources/purchasables/all/upgrades/additional_coin_value_platinum.tres" id="32_gc0qf"]
+[ext_resource type="Resource" uid="uid://mtl32st6demf" path="res://resources/purchasables/all/upgrades/additional_coin_value_platinum_final.tres" id="33_rpjqm"]
+[ext_resource type="Resource" uid="uid://d3r4y4wftqsq1" path="res://resources/purchasables/all/upgrades/additional_coin_value_small_final.tres" id="34_3idjk"]
+[ext_resource type="Resource" uid="uid://b7pri7qjvf4dg" path="res://resources/purchasables/all/upgrades/additional_coin_value_multiplier_platinum.tres" id="34_cx06v"]
+[ext_resource type="Resource" uid="uid://dn1x2o0vg6h16" path="res://resources/purchasables/all/upgrades/additional_coin_value_medium.tres" id="35_gc0qf"]
+[ext_resource type="Resource" uid="uid://bhtc3bgphqoja" path="res://resources/purchasables/all/upgrades/helper_trigger_diamond_coins.tres" id="35_orhnk"]
+[ext_resource type="Resource" uid="uid://bjtlippwrhl2r" path="res://resources/purchasables/all/upgrades/additional_coin_value_diamond.tres" id="36_326bh"]
+[ext_resource type="Resource" uid="uid://b3d02nf5y7xx7" path="res://resources/purchasables/all/upgrades/additional_coin_value_large_final.tres" id="36_rpjqm"]
+[ext_resource type="Resource" uid="uid://b7jyi001vcfhv" path="res://resources/purchasables/all/upgrades/additional_coin_value_diamond_final.tres" id="37_d3vgn"]
+[ext_resource type="Resource" uid="uid://dh2rvngmr7yq" path="res://resources/purchasables/all/upgrades/additional_coin_value_multiplier_diamond.tres" id="38_7if7r"]
+[ext_resource type="StyleBox" uid="uid://ll4tdqrbh72n" path="res://assets/styles/shop_sidebar_panel.tres" id="38_cx06v"]
+[ext_resource type="Resource" uid="uid://33nd7wojqv1w" path="res://resources/purchasables/all/upgrades/hover_medium_coins.tres" id="39_d3vgn"]
+[ext_resource type="Resource" uid="uid://ceich4ci8ky4w" path="res://resources/purchasables/all/upgrades/helpers_immediatly_wake_up.tres" id="39_gc0qf"]
+[ext_resource type="Script" uid="uid://rmovtb7ocxo2" path="res://ui/navigation.gd" id="39_rpjqm"]
+[ext_resource type="PackedScene" uid="uid://cvp2f2x2n6lwf" path="res://ui/juicy_button_effect_on_parent/juicy_button_effect_on_parent.tscn" id="40_cx06v"]
+[ext_resource type="Script" uid="uid://cgc1mjmdtvntq" path="res://ui/blink_until_achievement/blink_until_achievement.gd" id="40_orhnk"]
+[ext_resource type="PackedScene" uid="uid://bkcxakdiwbkt6" path="res://ui/stats_tree/stats_tree.tscn" id="41_cx06v"]
+[ext_resource type="Resource" uid="uid://cd3m63a04yjgi" path="res://resources/purchasables/all/upgrades/hover_large_coins.tres" id="41_nh5i6"]
+[ext_resource type="Resource" uid="uid://bswfpxslr3l62" path="res://resources/purchasables/all/upgrades/hover_platinum_coins.tres" id="42_arkdp"]
+[ext_resource type="Texture2D" uid="uid://da01uxfqahkra" path="res://assets/images/icons/shop.png" id="42_msnp7"]
+[ext_resource type="Resource" uid="uid://dmyfhva8qn87f" path="res://resources/purchasables/all/upgrades/hover_diamond_coins.tres" id="43_byowg"]
+[ext_resource type="PackedScene" uid="uid://b8dwvy0hs6af6" path="res://ui/game_configuration_menu/game_configuration_menu.tscn" id="43_orhnk"]
+[ext_resource type="Texture2D" uid="uid://dxg1ohfolp4l5" path="res://assets/images/icons/upgrades.png" id="44_rn267"]
+[ext_resource type="Script" uid="uid://cjdla6ovepuiw" path="res://ui/shop_sidebar/tab_label.gd" id="45_ucx1d"]
+[ext_resource type="Texture2D" uid="uid://cthowg5bs7um0" path="res://assets/images/icons/strategy.png" id="46_w8b7d"]
+[ext_resource type="Texture2D" uid="uid://dpsxlw4ryoi0n" path="res://assets/images/icons/stats.png" id="47_0akwv"]
+[ext_resource type="PackedScene" uid="uid://8wwertgefdjn" path="res://ui/hat_configuration_menu/hat_configuration_menu.tscn" id="47_srvtu"]
+[ext_resource type="Texture2D" uid="uid://b5lyp2ua7r76a" path="res://assets/images/icons/hats.png" id="48_w8b7d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx06v"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orhnk"]
+
+[node name="ShopSidebar" type="PanelContainer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -246.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cx06v")
+script = ExtResource("1_ij0hf")
+item_purchasables = Array[ExtResource("2_dfemt")]([ExtResource("7_3polh"), ExtResource("9_326bh"), ExtResource("10_7if7r"), ExtResource("3_sy81x"), ExtResource("4_jiadn"), ExtResource("5_t6jse"), ExtResource("8_yqypp"), ExtResource("9_650uw")])
+upgrade_purchasables = Array[ExtResource("2_dfemt")]([ExtResource("15_wk6il"), ExtResource("39_gc0qf"), ExtResource("6_0ptf4"), ExtResource("11_l1ieg"), ExtResource("8_4wb8u"), ExtResource("17_f7pud"), ExtResource("16_q0uhq"), ExtResource("34_3idjk"), ExtResource("9_5tu1h"), ExtResource("35_gc0qf"), ExtResource("12_2myfl"), ExtResource("15_t6qt2"), ExtResource("8_a1ooo"), ExtResource("39_d3vgn"), ExtResource("13_4gcru"), ExtResource("10_b4g12"), ExtResource("13_nqph6"), ExtResource("16_glg2o"), ExtResource("36_rpjqm"), ExtResource("41_nh5i6"), ExtResource("14_b58fx"), ExtResource("32_gc0qf"), ExtResource("34_cx06v"), ExtResource("26_650uw"), ExtResource("33_rpjqm"), ExtResource("42_arkdp"), ExtResource("31_3idjk"), ExtResource("36_326bh"), ExtResource("38_7if7r"), ExtResource("29_co06w"), ExtResource("37_d3vgn"), ExtResource("43_byowg"), ExtResource("35_orhnk")])
+item_purchasables_demo = Array[ExtResource("2_dfemt")]([ExtResource("7_3polh"), ExtResource("3_sy81x"), ExtResource("4_jiadn"), ExtResource("5_t6jse")])
+upgrade_purchasables_demo = Array[ExtResource("2_dfemt")]([ExtResource("6_0ptf4"), ExtResource("11_l1ieg"), ExtResource("15_wk6il"), ExtResource("39_gc0qf"), ExtResource("8_4wb8u"), ExtResource("17_f7pud"), ExtResource("16_q0uhq"), ExtResource("34_3idjk"), ExtResource("9_5tu1h"), ExtResource("35_gc0qf"), ExtResource("12_2myfl"), ExtResource("15_t6qt2"), ExtResource("8_a1ooo"), ExtResource("39_d3vgn"), ExtResource("13_4gcru"), ExtResource("10_b4g12"), ExtResource("13_nqph6"), ExtResource("16_glg2o"), ExtResource("36_rpjqm"), ExtResource("41_nh5i6"), ExtResource("14_b58fx")])
+
+[node name="Navigator" type="Node" parent="." node_paths=PackedStringArray("buttons", "routes")]
+script = ExtResource("39_rpjqm")
+buttons = [NodePath("../VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/ItemsButton"), NodePath("../VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/UpgradesButton"), NodePath("../VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/TacticsButton"), NodePath("../VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/InfoButton"), NodePath("../VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/HatsButton")]
+routes = [NodePath("../VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_ITEMS"), NodePath("../VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_UPGRADES"), NodePath("../VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_TACTICS"), NodePath("../VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_INFO"), NodePath("../VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_HATS")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NavigationButtonContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_orhnk")
+
+[node name="SidebarNavigationButtons" type="HFlowContainer" parent="VBoxContainer/NavigationButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="ItemsButton" type="Button" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons"]
+unique_name_in_owner = true
+clip_children = 2
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+icon = ExtResource("42_msnp7")
+flat = true
+icon_alignment = 2
+
+[node name="JuicyButtonEffectOnParent" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/ItemsButton" instance=ExtResource("40_cx06v")]
+
+[node name="UpgradesButton" type="Button" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons"]
+unique_name_in_owner = true
+clip_children = 2
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+icon = ExtResource("44_rn267")
+flat = true
+
+[node name="JuicyButtonEffectOnParent" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/UpgradesButton" instance=ExtResource("40_cx06v")]
+
+[node name="BlinkUntilAchievement" type="Node" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/UpgradesButton"]
+script = ExtResource("40_orhnk")
+needed_achievement = 7
+
+[node name="TacticsButton" type="Button" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons"]
+unique_name_in_owner = true
+clip_children = 2
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+icon = ExtResource("46_w8b7d")
+flat = true
+
+[node name="JuicyButtonEffectOnParent" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/TacticsButton" instance=ExtResource("40_cx06v")]
+
+[node name="BlinkUntilAchievement" type="Node" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/TacticsButton"]
+script = ExtResource("40_orhnk")
+needed_achievement = 15
+
+[node name="InfoButton" type="Button" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons"]
+unique_name_in_owner = true
+clip_children = 2
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+icon = ExtResource("47_0akwv")
+flat = true
+
+[node name="JuicyButtonEffectOnParent" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/InfoButton" instance=ExtResource("40_cx06v")]
+
+[node name="BlinkUntilAchievement" type="Node" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/InfoButton"]
+script = ExtResource("40_orhnk")
+needed_achievement = 8
+
+[node name="HatsButton" type="Button" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons"]
+unique_name_in_owner = true
+clip_children = 2
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+icon = ExtResource("48_w8b7d")
+flat = true
+icon_alignment = 2
+
+[node name="JuicyButtonEffectOnParent" parent="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/HatsButton" instance=ExtResource("40_cx06v")]
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TabLabel" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "CURRENT ROUTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+script = ExtResource("45_ucx1d")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("38_cx06v")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NavigationRoutes" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SHOP_TAB_ITEMS" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_ITEMS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 8
+
+[node name="ItemContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_ITEMS/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SHOP_TAB_UPGRADES" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_UPGRADES"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 8
+
+[node name="UpgradeContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_UPGRADES/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SHOP_TAB_INFO" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_INFO"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 8
+
+[node name="StatsTree" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_INFO/MarginContainer" instance=ExtResource("41_cx06v")]
+layout_mode = 2
+
+[node name="SHOP_TAB_TACTICS" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_TACTICS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 8
+
+[node name="GameConfigurationMenu" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_TACTICS/MarginContainer" instance=ExtResource("43_orhnk")]
+layout_mode = 2
+
+[node name="SHOP_TAB_HATS" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_HATS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 8
+
+[node name="HatConfiguration" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/NavigationRoutes/SHOP_TAB_HATS/MarginContainer" instance=ExtResource("47_srvtu")]
+layout_mode = 2
+
+[connection signal="route_selected" from="Navigator" to="VBoxContainer/MarginContainer/TabLabel" method="_on_navigator_route_selected"]
+[connection signal="pressed" from="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/UpgradesButton" to="." method="_on_shop_tab_upgrades_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/TacticsButton" to="." method="_on_shop_tab_tactics_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/NavigationButtonContainer/SidebarNavigationButtons/InfoButton" to="." method="_on_shop_tab_info_visibility_changed"]
