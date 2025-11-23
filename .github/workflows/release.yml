@@ -5,16 +5,17 @@ on:
     types: [published]
 
 jobs:
+  lifecycle:
+    uses: ./.github/workflows/lifecycle.yml
+
   publish:
+    needs: lifecycle
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
-
-      - name: Run tests
-        run: cargo test
 
       - name: Publish to crates.io
         run: cargo publish --token ${{ secrets.CRATE_UPDATE_SECRET }}
