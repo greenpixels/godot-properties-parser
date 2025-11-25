@@ -12,7 +12,7 @@ fn get_expectations() -> SceneExpectations {
         .with_editables(0)
         .with_header_property("load_steps", "3")
         .with_header_property("format", "3")
-        .with_header_property("uid", "\"uid://dbu7cb0h10jdt\"")
+        .with_header_property("uid", "uid://dbu7cb0h10jdt")
 }
 
 fn get_test_suite() -> SceneTestSuite<'static> {
@@ -141,7 +141,7 @@ fn test_sub_resource_has_gdscript_type() {
 
     assert_eq!(
         resource_name,
-        Some("\"TooltipOcerlay\""),
+        Some("TooltipOcerlay"),
         "Sub resource should have resource_name property"
     );
 }
@@ -184,10 +184,10 @@ fn test_builtin_script_has_script_source_property() {
 
     let script_value = &script_source.unwrap().value;
 
-    // Verify it's a string (starts with quote)
+    // Verify it's not empty
     assert!(
-        script_value.starts_with('"'),
-        "script/source value should be a quoted string"
+        !script_value.is_empty(),
+        "script/source value should not be empty"
     );
 
     // Verify it contains actual GDScript code

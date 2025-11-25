@@ -244,9 +244,10 @@ impl<'a> SceneTestSuite<'a> {
 
         for ext_res in &scene.ext_resources {
             if let Some(path) = ext_res.properties.iter().find(|p| p.key == "path") {
+                // Values are now parsed without quotes
                 assert!(
-                    path.value.starts_with('"') && path.value.ends_with('"'),
-                    "[{}] Path should be quoted: {}",
+                    !path.value.is_empty(),
+                    "[{}] Path should not be empty: {}",
                     self.expectations.name,
                     path.value
                 );
@@ -309,9 +310,10 @@ impl<'a> SceneTestSuite<'a> {
 
         for node in &scene.nodes {
             if let Some(name) = node.properties.iter().find(|p| p.key == "name") {
+                // Values are now parsed without quotes
                 assert!(
-                    name.value.starts_with('"') && name.value.ends_with('"'),
-                    "[{}] Node name should be quoted: {}",
+                    !name.value.is_empty(),
+                    "[{}] Node name should not be empty: {}",
                     self.expectations.name,
                     name.value
                 );

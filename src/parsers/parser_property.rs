@@ -125,12 +125,12 @@ fn parse_array_content(input: &str) -> IResult<&str, ()> {
 }
 
 fn parse_quoted_string(input: &str) -> IResult<&str, &str> {
-    let start = input;
     let (input, _) = char('"')(input)?;
+    let content_start = input;
     let (input, _) = parse_string_content(input)?;
+    let content_len = content_start.len() - input.len();
     let (input, _) = char('"')(input)?;
-    let consumed_len = start.len() - input.len();
-    Ok((input, &start[..consumed_len]))
+    Ok((input, &content_start[..content_len]))
 }
 
 fn parse_string_content(input: &str) -> IResult<&str, ()> {

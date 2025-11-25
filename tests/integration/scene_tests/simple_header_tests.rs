@@ -12,7 +12,7 @@ fn get_expectations() -> SceneExpectations {
         .with_editables(0)
         .with_header_property("load_steps", "46")
         .with_header_property("format", "3")
-        .with_header_property("uid", r#""uid://dji6tdg6ku1xb""#)
+        .with_header_property("uid", "uid://dji6tdg6ku1xb")
 }
 
 fn get_test_suite() -> SceneTestSuite<'static> {

@@ -31,12 +31,12 @@ fn test_parse_multiple_sections() {
     assert_eq!(file.sections[1].header_type, "ext_resource");
     assert_eq!(file.sections[1].properties.len(), 2);
     assert_eq!(file.sections[1].properties[0].key, "type");
-    assert_eq!(file.sections[1].properties[0].value, r#""Script""#);
+    assert_eq!(file.sections[1].properties[0].value, "Script");
 
     assert_eq!(file.sections[2].header_type, "node");
     assert_eq!(file.sections[2].properties.len(), 2);
     assert_eq!(file.sections[2].properties[0].key, "name");
-    assert_eq!(file.sections[2].properties[0].value, r#""Node""#);
+    assert_eq!(file.sections[2].properties[0].value, "Node");
 }
 
 #[test]
@@ -58,5 +58,5 @@ fn test_parse_with_spaces_around_equals() {
     assert_eq!(file.sections.len(), 1);
     assert_eq!(file.sections[0].header_type, "ext_resource");
     assert_eq!(file.sections[0].properties[0].key, "type");
-    assert_eq!(file.sections[0].properties[0].value, r#""Script""#);
+    assert_eq!(file.sections[0].properties[0].value, "Script");
 }
