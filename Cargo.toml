@@ -1,6 +1,6 @@
 [package]
 name = "godot-properties-parser"
-version = "0.3.0"
+version = "0.4.0"
 edition = "2024"
 authors = ["Sven Teigler"]
 description = "A parser for Godot Engine property files (.tscn scenes and .godot projects)"
